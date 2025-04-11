@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Add New Blog</title>
+    <style>
+      body {
+        background: #f8f9fa;
+      }
+      .blog-form-card {
+        max-width: 700px;
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .form-title {
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    
+    <div class="container my-5">
+      <div class="card blog-form-card p-4 bg-white">
+        <div class="form-title">📝 Add New Blog</div>
+        <form action="/blog" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="coverImage" class="form-label">
+              📷 Cover Image
+            </label>
+            <input
+              type="file"
+              class="form-control"
+              id="coverImage"
+              name="coverImage"
+              aria-describedby="coverImage"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">
+              ✍️ Blog Title
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              aria-describedby="title"
+              placeholder="Enter a catchy title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="body" class="form-label">
+              📄 Blog Content
+            </label>
+            <textarea
+              name="body"
+              class="form-control"
+              id="body"
+              rows="6"
+              placeholder="Write your blog here..."
+            ></textarea>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-primary btn-lg">
+              🚀 Publish Blog
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <%- include('./partials/script') %>
+  </body>
+</html>

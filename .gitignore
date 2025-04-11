@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Optional: If using any coverage or build tools
+coverage/
+build/
+
+# Optional: Uploaded images (if stored locally)
+uploads/
+public/uploads/
+
+# Optional: dotenv example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Sign In</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-wrapper {
+      min-height: calc(100vh - 70px); /* Adjust based on navbar height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      background-color: white;
+    }
+
+    .form-control {
+      border-radius: 12px;
+    }
+
+    .form-control:focus {
+      border-color: #8e44ad;
+      box-shadow: 0 0 0 0.2rem rgba(142, 68, 173, 0.25);
+    }
+
+    .btn-primary {
+      background-color: #8e44ad;
+      border: none;
+      border-radius: 12px;
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: #732d91;
+    }
+
+    .text-center a {
+      color: #8e44ad;
+      text-decoration: none;
+    }
+
+    .text-center a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('./partials/nav') %>
+
+  <!-- Signup Form -->
+
+  <div class="form-wrapper">
+    <div class="card">
+      <h3 class="text-center mb-4 fw-bold">Create Account</h3>
+      <form method="post" action="/user/signin">
+        
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+        </div>
+
+ 
+
+        <button type="submit" class="btn btn-primary w-100 mt-2">Sign Up</button>
+
+      </form>
+    </div>
+  </div>
+
+
+  <%- include('./partials/script') %>
+</body>
+</html>

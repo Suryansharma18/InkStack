@@ -1,0 +1,106 @@
+<!-- Bootstrap CSS -->
+
+<!-- Bootstrap JS -->
+
+
+<style>
+  .custom-navbar {
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .navbar-brand,
+  .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #ffeaa7 !important;
+    transform: translateY(-2px);
+  }
+
+  .dropdown-menu {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .dropdown-item {
+    color: #333 !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #8e44ad !important;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg custom-navbar py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">Ink Stack</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto me-4">
+        <li class="nav-item me-4">
+          <a class="nav-link active" href="/">Home <span class="visually-hidden">(current)</span></a>
+        </li>
+        <% if (locals.user) { %>
+          <li class="nav-item me-4">
+            <a class="nav-link" href="/blog/add-new">Add Blog</a>
+          </li>
+          <li class="nav-item dropdown me-4">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+               <%= user.fullName %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/user/logout">Log out</a></li>    
+              <!-- <li><a class="dropdown-item" href="#">Profile</a></li>     -->
+            </ul>
+          </li>
+        <% } else {%>
+          <li class="nav-item me-4">
+            <a class="nav-link" href="/user/signup">Create Account </a>
+          </li>
+          <li class="nav-item me-4">
+            <a class="nav-link" href="/user/signin">Sign in</a>
+          </li>
+
+          <%  }%>
+       
+       
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if (locals.error) { %>
+  <div class="d-flex justify-content-center mt-3">
+    <div class="alert alert-danger d-flex align-items-center w-50 justify-content-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Danger:">
+        <use xlink:href="#exclamation-triangle-fill" />
+      </svg>
+      <div>
+        <%= locals.error %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Icons SVG (include once per page) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.964 0L.165 13.233c-.457.778.091 1.767.982 1.767h13.707c.89 0 1.438-.99.982-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </symbol>
+  </svg>
+<% } %>
+
