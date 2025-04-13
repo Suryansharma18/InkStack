@@ -24,7 +24,10 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 
 
-
+// app.use((req, res, next) => {
+//     res.locals.user = req.user || null;
+//     next();
+//   });
 
 
 app.use(express.static(path.resolve('./public')));
@@ -32,10 +35,12 @@ app.use(express.static(path.resolve('./public')));
 app.get("/",async(req,res)=>{
     const allBlogs = await Blog.find({});
     res.render("home",{
-        user : req.user,
+        user : req.user,   
         blogs : allBlogs,
     });
+  
 })
+
 app.use("/user",UserRoutes);
 app.use("/blog",BlogRoutes);
 
